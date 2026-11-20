@@ -1,0 +1,67 @@
+media:
+  input: media
+  output: /media
+  rename: safe
+
+content:
+  - name: prodotti
+    label: Prodotti della Bottega
+    type: collection
+    path: content/prodotti
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: nome_it
+      fields: [nome_it, categoria, prezzo, pubblicato]
+      search: [nome_it, produttore, categoria]
+      sort: [nome_it, categoria]
+    fields:
+      - name: nome_it
+        label: Nome prodotto - Italiano
+        type: string
+        required: true
+      - name: categoria
+        label: Categoria
+        type: select
+        required: true
+        options:
+          values:
+            - Oli e aceti
+            - Pasta e sughi
+            - Conserve e specialita
+            - Formaggi e salumi
+            - Dolci e confetture
+            - Vini e bevande
+            - Altri prodotti
+      - name: produttore
+        label: Produttore
+        type: string
+      - name: prezzo
+        label: Prezzo in euro
+        type: number
+        options:
+          min: 0
+      - name: formato
+        label: Formato (es. 500 ml)
+        type: string
+      - name: immagine
+        label: Fotografia prodotto
+        type: image
+      - name: pubblicato
+        label: Mostra nel catalogo
+        type: boolean
+      - name: descrizione_it
+        label: Descrizione - Italiano
+        type: text
+      - name: nome_en
+        label: Nome prodotto - Inglese
+        type: string
+      - name: descrizione_en
+        label: Descrizione - Inglese
+        type: text
+      - name: nome_de
+        label: Nome prodotto - Tedesco
+        type: string
+      - name: descrizione_de
+        label: Descrizione - Tedesco
+        type: text
